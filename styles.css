@@ -1,0 +1,86 @@
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 350px;
+    border-top: 5px solid #006633;
+}
+
+.card h1 {
+    margin-bottom: 10px;
+    color: #006633;
+    font-size: 28px;
+}
+
+.card p {
+    margin: 8px 0;
+    color: #555555;
+    font-size: 16px;
+}
+
+.card a {
+    color: #F39C12;
+    text-decoration: none;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}
+
+.qr-code {
+    margin-top: 25px;
+}
+
+.logo {
+    width: 70px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.tagline {
+    font-style: italic;
+    color: #777777;
+    margin: 10px 0 20px 0;
+}
+
+#contactBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #006633;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#contactBtn:hover {
+    background-color: #006633;
+}
+
+h2#about {
+    margin-top: 30px;
+    color: #006633;
+    font-size: 22px;
+}
+
+.card p:last-of-type {
+    font-size: 14px;
+    color: #777777;
+}
