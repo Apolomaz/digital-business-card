@@ -118,3 +118,19 @@ h2#about {
         height: 80px;
     }
 }
+
+/* Additional Media Query for Smaller Devices */
+@media (max-width: 400px) {
+    .social-icons a {
+        font-size: 20px;
+        margin: 0 8px;
+    }
+
+    h2#about {
+        font-size: 20px;
+    }
+
+    .card p {
+        font-size: 12px;
+    }
+}
