@@ -84,7 +84,14 @@
 
         <div class="actions" role="group" aria-label="actions">
           <a class="btn" href="tel:4084210653" id="contactBtn">Contact Me</a>
-          <a class="btn secondary" href="#about" id="learnMore">Learn More</a>
+          <a
+  class="btn secondary"
+  href="https://getprolandscaping.net/#services"
+  target="_blank"
+  rel="noopener"
+>
+  View Services
+</a>
         </div>
       </div>
 
@@ -104,24 +111,18 @@
     </div>
   </section>
 
-  <script>
-    // smooth scroll
-    document.getElementById('learnMore').addEventListener('click', function(e){
-      e.preventDefault();
-      document.getElementById('about').scrollIntoView({behavior:'smooth',block:'start'});
-    });
-
-    // small fallback - show alert if images failed to load (helps debugging)
-    window.addEventListener('load', function(){
-      var logo = document.querySelector('.logo-img');
-      var qr = document.querySelector('.qr img');
-      if(logo && logo.complete && typeof logo.naturalWidth !== "undefined" && logo.naturalWidth === 0){
-        console.warn('Logo not found: expected "logo.png" in same folder as index.html');
-      }
-      if(qr && qr.complete && typeof qr.naturalWidth !== "undefined" && qr.naturalWidth === 0){
-        console.warn('QR not found: expected "qr_code_main.png" in same folder as index.html');
-      }
-    });
-  </script>
+<script>
+  // image debug fallback
+  window.addEventListener('load', function(){
+    var logo = document.querySelector('.logo-img');
+    var qr = document.querySelector('.qr img');
+    if(logo && logo.naturalWidth === 0){
+      console.warn('Logo not found: logo.png');
+    }
+    if(qr && qr.naturalWidth === 0){
+      console.warn('QR not found: qr_code_main.png');
+    }
+  });
+</script>
 </body>
 </html>
