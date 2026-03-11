@@ -7,14 +7,6 @@
   <meta name="description" content="Apolo Arellano — Estimator at Get Pro Landscaping. Contact: apolo@getprolandscaping.net | 408-421-0653" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-  .company-name{
-  text-align:center;
-  margin-top:6px;
-  font-size:13.5px;
-  font-weight:600;
-  letter-spacing:0.35px;
-  color:#2f5e4a;
-}
     :root{
       --brand-green:#005f40;
       --brand-white:#f8fdf9;
@@ -70,12 +62,9 @@
   <div class="wrap">
     <article class="card" role="article" aria-label="Digital business card for Apolo Arellano">
       <div class="logo-box">
-  <img src="logo.png" alt="Get Pro Landscaping logo" class="logo-img" onerror="this.style.display='none'"/>
-</div>
-
-<div class="company-name">
-  Get Pro Landscaping &amp; Management Inc.
-</div>
+        <!-- using the logo in the same folder -->
+        <img src="logo.png" alt="Get Pro Landscaping logo" class="logo-img" onerror="this.style.display='none'"/>
+      </div>
 
       <h1>Apolo Arellano</h1>
       <p class="role">Estimator</p>
@@ -95,21 +84,15 @@
 
         <div class="actions" role="group" aria-label="actions">
           <a class="btn" href="tel:4084210653" id="contactBtn">Contact Me</a>
-          <a
-  class="btn secondary"
-  href="https://getprolandscaping.net/services.html"
-  target="_blank"
-  rel="noopener"
->
-  View Services
-</a>
+          <a class="btn secondary" href="#about" id="learnMore">Learn More</a>
+          <a class="btn secondary" id="shareBtn">Share</a>
         </div>
       </div>
 
       <div class="social" aria-hidden="false">
-        <a href="https://www.facebook.com/GetProLandscapingmanagement" target="_blank" rel="noopener" aria-label="facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/get_pro_landscaping/" target="_blank" rel="noopener" aria-label="instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.linkedin.com/company/get-pro-landscaping-maintenance-inc" target="_blank" rel="noopener" aria-label="linkedin"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.facebook.com/apoloarellano" target="_blank" rel="noopener" aria-label="facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/apoloarellano" target="_blank" rel="noopener" aria-label="instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/apoloarellano" target="_blank" rel="noopener" aria-label="linkedin"><i class="fab fa-linkedin-in"></i></a>
         <a href="https://www.youtube.com/@getprolandscaping" target="_blank" rel="noopener" aria-label="youtube"><i class="fab fa-youtube"></i></a>
       </div>
     </article>
@@ -122,18 +105,42 @@
     </div>
   </section>
 
-<script>
-  // image debug fallback
-  window.addEventListener('load', function(){
-    var logo = document.querySelector('.logo-img');
-    var qr = document.querySelector('.qr img');
-    if(logo && logo.naturalWidth === 0){
-      console.warn('Logo not found: logo.png');
-    }
-    if(qr && qr.naturalWidth === 0){
-      console.warn('QR not found: qr_code_main.png');
-    }
-  });
-</script>
+  <script>
+    // smooth scroll
+    document.getElementById('learnMore').addEventListener('click', function(e){
+      e.preventDefault();
+      document.getElementById('about').scrollIntoView({behavior:'smooth',block:'start'});
+    });
+
+    // share functionality
+    document.getElementById('shareBtn').addEventListener('click', function(){
+      if (navigator.share) {
+        navigator.share({
+          title: 'Apolo Arellano — Get Pro Landscaping',
+          text: 'Check out my business card',
+          url: window.location.href
+        }).catch(console.error);
+      } else {
+        // Fallback: copy URL to clipboard
+        navigator.clipboard.writeText(window.location.href).then(function() {
+          alert('Link copied to clipboard!');
+        }).catch(function() {
+          alert('Share not supported on this device.');
+        });
+      }
+    });
+
+    // small fallback - show alert if images failed to load (helps debugging)
+    window.addEventListener('load', function(){
+      var logo = document.querySelector('.logo-img');
+      var qr = document.querySelector('.qr img');
+      if(logo && logo.complete && typeof logo.naturalWidth !== "undefined" && logo.naturalWidth === 0){
+        console.warn('Logo not found: expected "logo.png" in same folder as index.html');
+      }
+      if(qr && qr.complete && typeof qr.naturalWidth !== "undefined" && qr.naturalWidth === 0){
+        console.warn('QR not found: expected "qr_code_main.png" in same folder as index.html');
+      }
+    });
+  </script>
 </body>
 </html>
